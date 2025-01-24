@@ -14,7 +14,7 @@
     <div>
     <ul>
         {% for game in games %}
-        <li>{{ game.title }} <button>{{ buy }}</button></li>
+        <li>{{ game.title }} | {{ game.description }}.Стоимость: {{ game.cost }} <button>{{ buy }}</button></li>
         {% endfor %}
     </ul>
     </div>
