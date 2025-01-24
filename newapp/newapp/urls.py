@@ -1,5 +1,5 @@
 """
-URL configuration for newapp project.
+URL configuration for UrbanDjango project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/5.1/topics/http/urls/
@@ -16,7 +16,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from task1.views import *
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('menu/', menu),
+    path('main-page/', main_page),
+    path('main-page/bin-page/', bin_page),
+    path('main-page/shop-page/', shop_page),
+    path('', sign_up_by_django),
 ]
+

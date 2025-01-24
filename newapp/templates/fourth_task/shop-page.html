@@ -1,0 +1,22 @@
+{% extends "fourth_task/menu.html" %}
+
+{% block title %}Subscribes{% endblock %}
+
+{% block pagename %}
+    <h1> Игры </h1>
+{% endblock %}
+
+{% block menu %}
+    <nav>{{ block.super }}</nav>
+{% endblock %}
+
+{% block content %}
+    <div>
+    <ul>
+        {% for game in games %}
+        <li>{{ game.title }} <button>{{ buy }}</button></li>
+        {% endfor %}
+    </ul>
+    </div>
+{% endblock %}
+
