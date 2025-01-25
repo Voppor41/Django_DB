@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from .models import *
 from .forms import UserRegister
+from django.core.paginator import Paginator
 
 
 # Функция для создания общего контекста меню
@@ -10,7 +11,8 @@ def menu_context():
         'title': "Main page",
         'main': "Главная",
         'shop': "Магазин",
-        'bin': "Корзина"
+        'bin': "Корзина",
+        'news': "Новости",
     }
 
 # Представления
@@ -32,6 +34,14 @@ def shop_page(request):
 
 def main_page(request):
     return render(request, 'fourth_task/main-page.html', menu_context())
+
+def news_page(request):
+    posts = News.objects.all()
+    paginator = Paginator(posts, 3)
+    page_number = request.GET.get('page')
+    news = paginator.get_page(page_number)
+    return render(request, "fourth_task/news.html", {'news': news})
+
 
 def sign_up_by_django(request):
     info = {}  # Пустой словарь для передачи контекста

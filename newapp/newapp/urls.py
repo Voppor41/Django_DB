@@ -18,7 +18,6 @@ from django.contrib import admin
 from django.urls import path
 from task1.views import *
 
-
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('menu/', menu),
@@ -26,5 +25,6 @@ urlpatterns = [
     path('main-page/bin-page/', bin_page),
     path('main-page/shop-page/', shop_page),
     path('', sign_up_by_django),
+    path('main-page/platform/news/', news_page),
 ]
 
